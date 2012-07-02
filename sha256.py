@@ -60,6 +60,9 @@ def hash(message):
 	message = pad(message)
 	#print message
 
+	H = list(H_arr)
+	K = list(K_arr)
+
 	# Split the message into blocks
 	blocks = []
 	for i in range(0, len(message), 64):
@@ -77,10 +80,6 @@ def hash(message):
 			w.append((sigma1(w[i-2]) + w[i-7] + sigma0(w[i-15]) + w[i-16]) & 0xFFFFFFFF)
 	
 		#Initialize hash value for this block:
-		
-		H = list(H_arr)
-		K = list(K_arr)
-
 		a = H[0]
 		b = H[1]
 		c = H[2]
@@ -136,3 +135,6 @@ while 1:
 		print hash(line.strip().decode('hex_codec')).encode('hex_codec')
 	else:
 		break	
+
+
+
