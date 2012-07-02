@@ -78,6 +78,8 @@ def hash(message):
 	
 		#Initialize hash value for this block:
 		
+		H = list(H_arr)
+		K = list(K_arr)
 
 		a = H[0]
 		b = H[1]
